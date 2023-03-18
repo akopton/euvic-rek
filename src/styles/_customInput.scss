@@ -1,0 +1,8 @@
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    .form-input {
+        height: 100%;
+        width: 100%;
+    }
+}
