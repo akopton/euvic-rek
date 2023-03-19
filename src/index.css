@@ -29,6 +29,11 @@
   width: 100%;
 }
 
+.role-select {
+  background-color: blue;
+  border-width: 3px;
+}
+
 .modal {
   height: 300px;
   width: 300px;
