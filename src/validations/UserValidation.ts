@@ -27,6 +27,10 @@ export const userSchema = yup.object({
   confirmPassword: yup
     .string()
     .required('Proszę potwierdzić hasło.')
+    .matches(
+      passwordRegex,
+      'Hasło powinno zawierać conajmniej 8 znaków, jedną dużą literę, jedną małą literę, jedną cyfrę oraz jeden znak specjalny',
+    )
     .oneOf([yup.ref('password')], 'Wprowadzone hasła się nie zgadzają.'),
   phone: yup.string().when({
     is: (value: string) => value.length > 0,

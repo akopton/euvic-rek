@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    min-height: 50px;
+
 
     .input__label {
         position: absolute;
@@ -45,8 +47,14 @@
     }
 
     .show-password-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: absolute;
-        right: 0;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
+        font-size: 20px;
     }
 }
 

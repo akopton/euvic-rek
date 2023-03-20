@@ -11,14 +11,14 @@ export const CustomForm = ({
   setIsFormFilled: Dispatch<React.SetStateAction<boolean>>
 }) => {
   const [role, setRole] = useState<string>('')
+  const [data, setData] = useState<any>()
   const {
     register,
     handleSubmit,
     formState: { errors },
     setValue,
-    getValues,
-    reset,
   } = useForm({
+    mode: 'all',
     resolver: yupResolver(userSchema),
   })
 
@@ -82,6 +82,10 @@ export const CustomForm = ({
       <input type="submit" value="Prześlij" />
 
       <span>* - pole wymagane</span>
+
+      <button type="button" onClick={() => console.log(data)}>
+        elo elo
+      </button>
     </form>
   )
 }

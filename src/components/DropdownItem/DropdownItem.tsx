@@ -1,19 +1,18 @@
-import { Dispatch } from 'react'
-import { FieldValues, useForm, UseFormRegister } from 'react-hook-form'
-import { UseFormStateProps } from 'react-hook-form/dist/types'
-
 export const DropdownItem = ({
   value,
   action,
   setValue,
   setShowDropdown,
+  handleFieldValid,
 }: {
   value: string
   action: React.Dispatch<React.SetStateAction<string>>
   setValue: any
   setShowDropdown: React.Dispatch<React.SetStateAction<boolean>>
+  handleFieldValid: (value: string) => void
 }) => {
   const handleClick = (e: any) => {
+    handleFieldValid(e.currentTarget.value)
     setValue('role', e.currentTarget.value)
     action(e.currentTarget.value)
     setShowDropdown(false)

@@ -1,6 +1,9 @@
-import { Dispatch, useState } from 'react'
+import { Dispatch, useEffect, useRef, useState } from 'react'
 import { SelectProps } from '../../types/SelectProps'
 import { DropdownItem } from '../DropdownItem/DropdownItem'
+import { IoIosArrowDown } from 'react-icons/io'
+import { BiCheckCircle } from 'react-icons/bi'
+import { useClickOutside } from '../../hooks/useClickOutside'
 
 export const CustomSelect = ({
   value,
@@ -19,26 +22,61 @@ export const CustomSelect = ({
   ]
 
   const [showDropdown, setShowDropdown] = useState<boolean>(false)
+  const [isFieldValid, setIsFieldValid] = useState<boolean>(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  const handleFieldValid = (el: string) => {
+    if (el) setIsFieldValid(true)
+    else setIsFieldValid(false)
+  }
+
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false)
+      }
+    }
+    document.addEventListener('click', handleClickOutside)
+
+    return () => document.removeEventListener('click', handleClickOutside)
+  }, [])
 
   return (
-    <div className="custom-select__wrapper">
+    <div className="custom-select__wrapper form-field">
       <label className="custom-select__label">*Rola użytkownika</label>
-      <div className="custom-select">
+      <div
+        className="custom-select"
+        style={{
+          border: isFieldValid
+            ? '2px solid green'
+            : errors.role
+            ? '2px solid red'
+            : '',
+        }}
+        ref={dropdownRef}
+      >
         <button
-          className="custom-select__selected-value form-field"
+          className="custom-select__selected-value"
           type="button"
+          style={{
+            border: !showDropdown ? 'none' : '',
+          }}
           onClick={() => setShowDropdown((prevState) => !prevState)}
         >
           {value ? value : 'Wybierz z listy'}
-          <div
+          {isFieldValid ? (
+            <BiCheckCircle
+              className="field-correct"
+              style={{ right: '30px' }}
+            />
+          ) : null}
+          <IoIosArrowDown
             className="selected-value__icon"
             style={{
-              transform: showDropdown ? 'rotate(180deg)' : '',
+              transform: showDropdown ? 'rotate(180deg) translateY(50%)' : '',
               transition: '.3s ease',
             }}
-          >
-            V
-          </div>
+          />
         </button>
         <ul
           className="custom-select__dropdown"
@@ -46,6 +84,7 @@ export const CustomSelect = ({
             maxHeight: showDropdown ? '100px' : '0',
             transition: 'max-height .3s ease',
             overflowY: showDropdown ? 'scroll' : 'hidden',
+            paddingBottom: showDropdown ? '10px' : '',
           }}
         >
           {roles.map((el, id) => (
@@ -55,12 +94,17 @@ export const CustomSelect = ({
               action={action}
               setValue={setValue}
               setShowDropdown={setShowDropdown}
+              handleFieldValid={handleFieldValid}
             />
           ))}
         </ul>
       </div>
-      <span role={'alert'} className="field-error">
-        {errors.role && errors.role?.message?.toString()}
+      <span
+        role={'alert'}
+        className="field-error"
+        style={{ marginTop: '25px' }}
+      >
+        {errors.role && value === '' ? errors.role?.message?.toString() : ''}
       </span>
     </div>
   )
