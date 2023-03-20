@@ -15,23 +15,144 @@
 }
 
 .register-form {
+  width: 500px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .input-wrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
-.input-wrapper .form-input {
+.input-wrapper .input__label {
+  position: absolute;
+  left: 10px;
+  padding: 0 2px;
+  order: 1;
+  font-size: 16px;
+  opacity: 0;
+  background-color: white;
+}
+.input-wrapper .input {
+  padding: 5px 10px;
   height: 100%;
-  width: 100%;
+  max-width: 100%;
+  order: 2;
+  font-size: 18px;
+}
+.input-wrapper .input:not(:-moz-placeholder-shown) ~ .input__label {
+  transform: translateY(-12px) translateX(-2px);
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+.input-wrapper .input:focus ~ .input__label, .input-wrapper .input:not(:placeholder-shown) ~ .input__label {
+  transform: translateY(-12px) translateX(-2px);
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+.input-wrapper .input:-moz-placeholder-shown ~ label {
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.input-wrapper .input:placeholder-shown ~ label {
+  transition: all 0.3s ease;
+}
+.input-wrapper .input:focus::-moz-placeholder {
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+.input-wrapper .input:focus::placeholder {
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+.input-wrapper .input::-moz-placeholder {
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.input-wrapper .input::placeholder {
+  transition: all 0.3s ease;
+}
+.input-wrapper .show-password-btn {
+  position: absolute;
+  right: 0;
 }
 
-.role-select {
-  background-color: blue;
-  border-width: 3px;
+.custom-select__wrapper {
+  width: 100%;
+  position: relative;
+}
+.custom-select__wrapper .custom-select__label {
+  display: block;
+  width: 100%;
+}
+.custom-select__wrapper .custom-select {
+  left: 0;
+  border: 1px solid blue;
+  border-bottom: none;
+  border-radius: 5px;
+  position: relative;
+}
+.custom-select__wrapper .custom-select__selected-value {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+}
+.custom-select__wrapper .custom-select__selected-value .selected-value__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+.custom-select__wrapper .custom-select__dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border: 1px solid blue;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  border-top: none;
+  background-color: white;
+  z-index: -1;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background: black;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-left: 5px black solid;
+  background-clip: padding-box;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  border-left: 5px black solid;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 0px;
+}
+
+.dropdown-item {
+  width: 100%;
+  height: 100%;
+  text-align: left;
 }
 
 .modal {
@@ -45,6 +166,40 @@
   transform: translate(-50%, -50%);
 }
 
+.form-field {
+  height: 50px;
+}
+
+button, input[type=submit] {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  border: 1px solid black;
+  background: none;
+  outline: none;
+  padding: 0;
+  border-radius: 5px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  border: 1px solid black;
+  -webkit-text-fill-color: none;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  -webkit-transition: background-color 5000s ease-in-out 12s;
+  transition: background-color 5000s ease-in-out 12s;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -52,6 +207,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   width: 100vw;
+  box-sizing: border-box;
 }
 
 code {

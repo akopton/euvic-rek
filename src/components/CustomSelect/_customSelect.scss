@@ -1,4 +1,73 @@
-.role-select {
-    background-color: blue;
-    border-width: 3px;
+.custom-select__wrapper {
+    width: 100%;
+    position: relative;
+    
+    .custom-select__label {
+        display: block;
+        width: 100%;
+    }
+
+    .custom-select {
+        left: 0;
+        border: 1px solid blue;
+        border-bottom: none;
+        border-radius: 5px;
+        position: relative;
+
+        &__selected-value {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 16px;
+            
+            .selected-value__btn {
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 1;
+            }
+        }
+    
+        &__dropdown {
+            position: absolute;
+            left: 0;
+            right: 0;
+            border: 1px solid blue;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            border-top: none;
+            background-color: white;
+            z-index: -1;
+        }
+
+    }
+
 }
+
+::-webkit-scrollbar {
+    width: 12px;
+    background: black;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-left: 5px black solid;
+    background-clip: padding-box;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    border-left: 5px black solid;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar:horizontal {
+    height: 0px;
+  }

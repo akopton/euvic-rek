@@ -6,19 +6,27 @@ export const DropdownItem = ({
   value,
   action,
   setValue,
+  setShowDropdown,
 }: {
   value: string
   action: React.Dispatch<React.SetStateAction<string>>
   setValue: any
+  setShowDropdown: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
   const handleClick = (e: any) => {
     setValue('role', e.currentTarget.value)
     action(e.currentTarget.value)
+    setShowDropdown(false)
   }
 
   return (
     <li>
-      <button value={value} type="button" onClick={handleClick}>
+      <button
+        className="dropdown-item"
+        value={value}
+        type="button"
+        onClick={handleClick}
+      >
         {value}
       </button>
     </li>

@@ -16,6 +16,8 @@ export const CustomForm = ({
     handleSubmit,
     formState: { errors },
     setValue,
+    getValues,
+    reset,
   } = useForm({
     resolver: yupResolver(userSchema),
   })
@@ -28,34 +30,43 @@ export const CustomForm = ({
   }
 
   return (
-    <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="register-form"
+      onSubmit={handleSubmit(onSubmit)}
+      autoComplete="off"
+    >
       <CustomInput
         id={'email'}
         type={'text'}
+        label={'Adres email'}
         register={register}
         errors={errors}
       />
       <CustomInput
         id={'password'}
         type={'password'}
+        label={'Hasło'}
         register={register}
         errors={errors}
       />
       <CustomInput
         id={'confirmPassword'}
         type={'password'}
+        label={'Potwierdź hasło'}
         register={register}
         errors={errors}
       />
       <CustomInput
         id={'nip'}
         type={'text'}
+        label={'Numer NIP'}
         register={register}
         errors={errors}
       />
       <CustomInput
         id={'phone'}
         type={'text'}
+        label={'Numer telefonu'}
         register={register}
         errors={errors}
       />
@@ -69,6 +80,8 @@ export const CustomForm = ({
       />
 
       <input type="submit" value="Prześlij" />
+
+      <span>* - pole wymagane</span>
     </form>
   )
 }

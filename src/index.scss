@@ -1,8 +1,10 @@
-@import './App';
-@import './customForm';
-@import './customInput';
-@import './customSelect';
-@import './modal';
+@import './app/App';
+@import './components/CustomForm/customForm';
+@import './components/CustomInput/customInput';
+@import './components/CustomSelect/customSelect';
+@import './components/DropdownItem/dropdownItem';
+@import './components/Modal/modal';
+@import './app/globalStyles';
 
 
 body {
@@ -14,9 +16,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   width: 100vw;
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
