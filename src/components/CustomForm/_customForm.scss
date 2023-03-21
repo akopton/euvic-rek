@@ -6,20 +6,19 @@
     max-width: 500px;
     width: 100%;
     gap: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 10px lightgrey;
     
     @media screen and (min-width: 520px) {
         padding: 30px 60px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 10px lightgrey;
     }
 
     &__label {
-        font-size: 18px;
+        font-size: 24px;
         font-weight: bold;
-        
+        margin-bottom: 20px;
+
         @media screen and (min-width: 520px) {
-            font-size: 24px;
-            margin-bottom: 10px;
         }
       }
 

@@ -15,7 +15,7 @@ export const DropdownItem = ({
 }) => {
   const handleClick = (e: any) => {
     handleFieldValid(e.currentTarget.value)
-    setValue('role', e.currentTarget.value.toLowerCase())
+    setValue('role', e.currentTarget.value)
     action(e.currentTarget.value)
     setShowDropdown(false)
   }

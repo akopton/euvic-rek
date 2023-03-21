@@ -27,9 +27,6 @@ export const CustomForm = ({
   const dispatch = useDispatch()
 
   const onSubmit = (data: FieldValues) => {
-    console.log(data)
-    // send data to store in redux
-    // show data on modal
     dispatch(update(data))
     setIsFormFilled(true)
   }
@@ -42,7 +39,7 @@ export const CustomForm = ({
       autoComplete="off"
     >
       <label htmlFor="register-form" className="register-form__label">
-        Zarejestruj nowego użytkownika
+        Rejestracja
       </label>
 
       <CustomInput
