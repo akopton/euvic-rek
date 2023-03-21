@@ -1,7 +1,7 @@
 .form-field {
+  display: flex;
+  flex-direction: column;
     height: 80px;
-    display: flex;
-    flex-direction: column;
     gap: 2px;
 
     .field-correct {

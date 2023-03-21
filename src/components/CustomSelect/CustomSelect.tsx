@@ -61,6 +61,7 @@ export const CustomSelect = ({
           type="button"
           style={{
             border: !showDropdown ? 'none' : '',
+            color: value !== '' ? 'black' : '',
           }}
           onClick={() => setShowDropdown((prevState) => !prevState)}
         >

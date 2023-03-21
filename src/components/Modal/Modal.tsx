@@ -1,13 +1,13 @@
 import { Dispatch, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { NewUser } from '../../types/NewUser'
 
 export const Modal = ({
   setIsFormFilled,
 }: {
   setIsFormFilled: Dispatch<React.SetStateAction<boolean>>
 }) => {
-  useEffect(() => {
-    // get data from redux
-  }, [])
+  const userData = useSelector((state: { user: NewUser }) => state.user)
 
   const handleClose = () => {
     setIsFormFilled(false)
@@ -18,13 +18,16 @@ export const Modal = ({
   }
 
   return (
-    <div className="modal">
-      <button onClick={handleClose}>X</button>
-      <div>Wprowadzone dane w formularzu</div>
-      <div>
-        <button onClick={handleClose}>Wróć do edycji</button>
-        <button onClick={handleSubmit}>Potwierdź rejestrację</button>
+    <>
+      <div className="modal">
+        <button onClick={handleClose}>X</button>
+        <div>{userData.email}</div>
+        <div>
+          <button onClick={handleClose}>Wróć do edycji</button>
+          <button onClick={handleSubmit}>Potwierdź rejestrację</button>
+        </div>
       </div>
-    </div>
+      <div className="blur" />
+    </>
   )
 }

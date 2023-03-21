@@ -1,6 +1,6 @@
 .custom-select__wrapper {
-    width: 100%;
     position: relative;
+    width: 100%;
     height: 100px !important;
     
     .custom-select__label {
@@ -14,22 +14,25 @@
         top: 25px;
         left: 0;
         right: 0;
-        border-radius: 5px;
-        border: 2px solid black;
         background-color: white;
+        border: 2px solid #bfbfbf;
+        border-radius: 5px;
+        z-index: 1;
 
         &__selected-value {
-            height: 50px;
-            border-radius: 5px;
-            padding: 5px 10px;
-            position: relative;
-            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 16px;
-            z-index: 5;
+            position: relative;
+            padding: 5px 10px;
+            height: 50px;
+            width: 100%;
+            font-size: 18px;
+            color: #8e8e8e;
             background-color: white;
+            border-radius: 5px;
+            z-index: 5;
+
 
             &:hover {
                 .selected-value__icon {
@@ -46,10 +49,10 @@
         }
     
         &__dropdown {
+            padding-left: 15px;
             border-top: none;
             background-color: white;
             border-radius: 10px;
-            padding-left: 15px;
         }
     }
 

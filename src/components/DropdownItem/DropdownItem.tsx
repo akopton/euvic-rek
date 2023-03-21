@@ -1,3 +1,5 @@
+import { FieldValues, UseFormSetValue } from 'react-hook-form'
+
 export const DropdownItem = ({
   value,
   action,
@@ -7,13 +9,13 @@ export const DropdownItem = ({
 }: {
   value: string
   action: React.Dispatch<React.SetStateAction<string>>
-  setValue: any
+  setValue: UseFormSetValue<FieldValues>
   setShowDropdown: React.Dispatch<React.SetStateAction<boolean>>
   handleFieldValid: (value: string) => void
 }) => {
   const handleClick = (e: any) => {
     handleFieldValid(e.currentTarget.value)
-    setValue('role', e.currentTarget.value)
+    setValue('role', e.currentTarget.value.toLowerCase())
     action(e.currentTarget.value)
     setShowDropdown(false)
   }

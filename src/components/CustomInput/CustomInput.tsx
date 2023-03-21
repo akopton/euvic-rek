@@ -36,12 +36,14 @@ export const CustomInput = ({
               ? '2px solid red'
               : isFieldValid
               ? '2px solid green'
-              : '2px solid black',
+              : '2px solid #bfbfbf',
           }}
         />
+
         <label htmlFor={id} className="input__label">
           {label}
         </label>
+
         {type === 'password' ? (
           <button
             type="button"
@@ -51,6 +53,7 @@ export const CustomInput = ({
             {showPassword ? <MdVisibility size={20} /> : <MdVisibilityOff />}
           </button>
         ) : null}
+
         {isFieldValid && !errors[id] ? (
           <BiCheckCircle
             className="field-correct"
@@ -58,6 +61,7 @@ export const CustomInput = ({
           />
         ) : null}
       </div>
+
       <span className="field-error">
         {errors[id] && `${errors[id]?.message}`}
       </span>
