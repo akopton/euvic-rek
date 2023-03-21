@@ -329,7 +329,7 @@ input:-webkit-autofill:focus {
     height: 600px;
     width: 500px;
     justify-content: initial;
-    padding: 50px 30px;
+    padding: 20px 80px;
     border-radius: 10px;
     box-shadow: inset 0 0 2px 2px #bfbfbf;
     gap: 10px;
@@ -338,13 +338,8 @@ input:-webkit-autofill:focus {
 .modal__title {
   display: block;
   width: 100%;
-  font-size: 24px;
+  font-size: 30px;
   text-align: center;
-}
-@media screen and (min-width: 520px) {
-  .modal__title {
-    font-size: 24px;
-  }
 }
 .modal__close-btn {
   position: absolute;
@@ -366,6 +361,12 @@ input:-webkit-autofill:focus {
 }
 .modal__list .list-item:not(:last-of-type) {
   border-bottom: 1px solid #bfbfbf;
+}
+.modal__list .list-item__title {
+  font-size: 20px;
+}
+.modal__list .list-item__value {
+  font-size: 18px;
 }
 .modal__buttons-wrap {
   display: flex;

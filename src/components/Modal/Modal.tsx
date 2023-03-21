@@ -49,8 +49,8 @@ export const Modal = ({
 
             <ul className="modal__list">
               <li className="list-item">
-                <span>Email:</span>
-                <span>{userData.email}</span>
+                <span className="list-item__title">Email:</span>
+                <span className="list-item__value">{userData.email}</span>
               </li>
               <li
                 className="list-item"
@@ -60,8 +60,8 @@ export const Modal = ({
                 }}
               >
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <span>Hasło:</span>
-                  <span>
+                  <span className="list-item__title">Hasło:</span>
+                  <span className="list-item__value">
                     {showPassword
                       ? userData.password
                       : userData.password.split('').map((el) => '*')}
@@ -76,16 +76,18 @@ export const Modal = ({
                 </button>
               </li>
               <li className="list-item">
-                <span>NIP:</span>
-                <span>{userData.nip}</span>
+                <span className="list-item__title">NIP:</span>
+                <span className="list-item__value">{userData.nip}</span>
               </li>
               <li className="list-item">
-                <span>Numer telefonu:</span>
-                <span>{userData.phone === '' ? 'brak' : userData.phone}</span>
+                <span className="list-item__title">Numer telefonu:</span>
+                <span className="list-item__value">
+                  {userData.phone === '' ? 'brak' : userData.phone}
+                </span>
               </li>
               <li className="list-item">
-                <span>Rola użytkownika:</span>
-                <span>{userData.role}</span>
+                <span className="list-item__title">Rola użytkownika:</span>
+                <span className="list-item__value">{userData.role}</span>
               </li>
             </ul>
 

@@ -18,7 +18,7 @@
         height: 600px;
         width: 500px;
         justify-content: initial;
-        padding: 50px 30px;
+        padding: 20px 80px;
         border-radius: 10px;
         box-shadow: inset 0 0 2px 2px #bfbfbf;
         gap: 10px;
@@ -27,12 +27,8 @@
     &__title {
         display: block;
         width: 100%;
-        font-size: 24px;
+        font-size: 30px;
         text-align: center;
-
-        @media screen and (min-width: 520px) {
-            font-size: 24px;
-        }
     }
 
     &__close-btn {
@@ -56,6 +52,14 @@
 
             &:not(:last-of-type) {
                 border-bottom: 1px solid #bfbfbf;
+            }
+
+            &__title {
+                font-size: 20px;
+            }
+
+            &__value {
+                font-size: 18px;
             }
         }
     }
