@@ -14,8 +14,8 @@ export const userSchema = yup.object({
     .email('Proszę podać prawidłowy adres email.'),
   nip: yup
     .string()
-    .matches(nipRegex, 'Proszę podać poprawny numer NIP')
-    .required('Numer NIP jest wymagany.'),
+    .required('Numer NIP jest wymagany.')
+    .matches(nipRegex, 'Proszę podać poprawny numer NIP'),
   password: yup
     .string()
     .required('Hasło jest wymagane.')
