@@ -81,7 +81,6 @@ export const CustomForm = ({
       <CustomSelect
         value={role}
         errors={errors}
-        required={true}
         action={setRole}
         setValue={setValue}
       />

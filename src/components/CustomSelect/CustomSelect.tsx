@@ -8,7 +8,6 @@ export const CustomSelect = ({
   value,
   action,
   errors,
-  required,
   setValue,
 }: SelectProps) => {
   const roles = [
