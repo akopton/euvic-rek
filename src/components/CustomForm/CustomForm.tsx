@@ -1,9 +1,10 @@
-import React, { Dispatch, useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import React, { Dispatch, useState } from 'react'
+import { FieldValues, useForm } from 'react-hook-form'
 import { userSchema } from '../../validations/UserValidation'
 import { CustomInput } from '../CustomInput/CustomInput'
 import { CustomSelect } from '../CustomSelect/CustomSelect'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { AiOutlineArrowRight } from 'react-icons/ai'
 
 export const CustomForm = ({
   setIsFormFilled,
@@ -22,7 +23,7 @@ export const CustomForm = ({
     resolver: yupResolver(userSchema),
   })
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: FieldValues) => {
     console.log(data)
     // send data to store in redux
     // show data on modal
@@ -32,9 +33,13 @@ export const CustomForm = ({
   return (
     <form
       className="register-form"
+      name="register-form"
       onSubmit={handleSubmit(onSubmit)}
       autoComplete="off"
     >
+      <label htmlFor="register-form" className="register-form__label">
+        Zarejestruj nowego użytkownika
+      </label>
       <CustomInput
         id={'email'}
         type={'text'}
@@ -79,13 +84,15 @@ export const CustomForm = ({
         setValue={setValue}
       />
 
-      <input type="submit" value="Prześlij" />
-
-      <span>* - pole wymagane</span>
-
-      <button type="button" onClick={() => console.log(data)}>
-        elo elo
+      <button
+        type="submit"
+        value="Prześlij"
+        className="register-form__submit-btn"
+      >
+        <span className="submit-btn__text">Prześlij</span>
+        <AiOutlineArrowRight className="submit-btn__icon" />
       </button>
+      <span>* - pole wymagane</span>
     </form>
   )
 }

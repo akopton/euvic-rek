@@ -22,14 +22,14 @@ export const userSchema = yup.object({
     .required('Hasło jest wymagane.')
     .matches(
       passwordRegex,
-      'Hasło powinno zawierać conajmniej 8 znaków, jedną dużą literę, jedną małą literę, jedną cyfrę oraz jeden znak specjalny',
+      'Hasło powinno zawierać conajmniej 8 znaków, jedną dużą literę, małą literę, cyfrę oraz jeden znak specjalny.',
     ),
   confirmPassword: yup
     .string()
     .required('Proszę potwierdzić hasło.')
     .matches(
       passwordRegex,
-      'Hasło powinno zawierać conajmniej 8 znaków, jedną dużą literę, jedną małą literę, jedną cyfrę oraz jeden znak specjalny',
+      'Hasło powinno zawierać conajmniej 8 znaków, jedną dużą literę, małą literę, cyfrę oraz jeden znak specjalny.',
     )
     .oneOf([yup.ref('password')], 'Wprowadzone hasła się nie zgadzają.'),
   phone: yup.string().when({

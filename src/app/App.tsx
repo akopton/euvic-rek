@@ -7,7 +7,6 @@ function App() {
 
   return (
     <main className="app">
-      <h1 className="app-title">Register now!</h1>
       <CustomForm setIsFormFilled={setIsFormFilled} />
       {isFormFilled && <Modal setIsFormFilled={setIsFormFilled} />}
     </main>

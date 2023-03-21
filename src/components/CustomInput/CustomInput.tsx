@@ -13,8 +13,8 @@ export const CustomInput = ({
   const [showPassword, setShowPassword] = useState<boolean>(false)
   const [isFieldValid, setIsFieldValid] = useState<boolean>(false)
 
-  const handleFieldValid = (e: any) => {
-    if (e.target.value.length > 0 && !errors[id]) setIsFieldValid(true)
+  const handleFieldValid = (e: React.FormEvent<HTMLInputElement>) => {
+    if (e.currentTarget.value.length > 0 && !errors[id]) setIsFieldValid(true)
     else setIsFieldValid(false)
   }
 

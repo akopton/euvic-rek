@@ -1,24 +1,84 @@
 .app {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 20px 20px;
 }
-.app-title {
-  color: red;
-  position: absolute;
-  white-space: nowrap;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+@media screen and (min-width: 768px) {
+  .app {
+    padding-top: 70px;
+  }
 }
 
 .register-form {
-  width: 500px;
+  box-sizing: border-box;
+  max-width: 500px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 25px 10px;
+  border: 2px solid black;
+  position: relative;
+  border-radius: 10px;
+}
+@media screen and (min-width: 768px) {
+  .register-form {
+    padding: 40px;
+  }
+}
+.register-form__label {
+  padding: 0 5px;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  background-color: white;
+  font-size: 18px;
+}
+@media screen and (min-width: 768px) {
+  .register-form__label {
+    top: -20px;
+    left: 15px;
+    font-size: 24px;
+  }
+}
+.register-form__submit-btn {
+  border: 2px solid black;
+  border-radius: 8px;
+  align-self: center;
+  height: 50px;
+  width: 130px;
+  font-size: 20px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+.register-form__submit-btn .submit-btn__text {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease;
+}
+.register-form__submit-btn .submit-btn__icon {
+  height: 22px;
+  width: 22px;
+  position: absolute;
+  top: 50%;
+  right: -22px;
+  transform: translateY(-50%);
+  transition: right 0.3s ease;
+}
+.register-form__submit-btn:hover .submit-btn__text {
+  transition: 0.3s ease;
+  left: 15px;
+  transform: translate(0, -50%);
+}
+.register-form__submit-btn:hover .submit-btn__icon {
+  transition: right 0.3s ease;
+  right: 10px;
 }
 
 .input-wrapper {
@@ -101,6 +161,7 @@
 }
 .custom-select__wrapper .custom-select {
   position: absolute;
+  top: 25px;
   left: 0;
   right: 0;
   border-radius: 5px;
@@ -119,6 +180,9 @@
   font-size: 16px;
   z-index: 5;
   background-color: white;
+}
+.custom-select__wrapper .custom-select__selected-value:hover .selected-value__icon {
+  color: blue;
 }
 .custom-select__wrapper .custom-select__selected-value .selected-value__icon {
   position: absolute;
@@ -146,6 +210,9 @@
   box-shadow: inset 0 0 5px 5px black;
   border: solid 8px transparent;
 }
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: inset 0 0 5px 5px blue;
+}
 
 .dropdown-item {
   height: 100%;
@@ -162,7 +229,7 @@
   transform: translateY(-50%);
   width: 2px;
   height: 0;
-  background-color: red;
+  background-color: blue;
   transition: height 0.3s ease;
 }
 .dropdown-item:hover:before {
@@ -174,7 +241,7 @@
   transform: translateY(-50%);
   width: 2px;
   height: 100%;
-  background-color: red;
+  background-color: blue;
   transition: height 0.3s ease;
 }
 
@@ -209,7 +276,7 @@
   color: red;
 }
 
-button, input[type=submit] {
+button {
   background: none;
   border: none;
   cursor: pointer;
@@ -221,6 +288,9 @@ input {
   outline: none;
   padding: 0;
   border-radius: 5px;
+}
+input:focus {
+  border: 2px solid blue !important;
 }
 
 ul {
@@ -244,8 +314,6 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
-  width: 100vw;
   box-sizing: border-box;
 }
 

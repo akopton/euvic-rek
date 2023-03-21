@@ -3,7 +3,6 @@ import { SelectProps } from '../../types/SelectProps'
 import { DropdownItem } from '../DropdownItem/DropdownItem'
 import { IoIosArrowDown } from 'react-icons/io'
 import { BiCheckCircle } from 'react-icons/bi'
-import { useClickOutside } from '../../hooks/useClickOutside'
 
 export const CustomSelect = ({
   value,
@@ -31,7 +30,7 @@ export const CustomSelect = ({
   }
 
   useEffect(() => {
-    const handleClickOutside = (event: any) => {
+    const handleClickOutside = (event: any): void => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setShowDropdown(false)
       }
@@ -51,6 +50,8 @@ export const CustomSelect = ({
             ? '2px solid green'
             : errors.role
             ? '2px solid red'
+            : showDropdown
+            ? '2px solid blue'
             : '',
         }}
         ref={dropdownRef}
@@ -63,7 +64,7 @@ export const CustomSelect = ({
           }}
           onClick={() => setShowDropdown((prevState) => !prevState)}
         >
-          {value ? value : 'Wybierz z listy'}
+          {value ? value : 'Wybierz z listy...'}
           {isFieldValid ? (
             <BiCheckCircle
               className="field-correct"
@@ -74,6 +75,7 @@ export const CustomSelect = ({
             className="selected-value__icon"
             style={{
               transform: showDropdown ? 'rotate(180deg) translateY(50%)' : '',
+              color: showDropdown ? 'blue' : '',
               transition: '.3s ease',
             }}
           />
@@ -89,8 +91,8 @@ export const CustomSelect = ({
         >
           {roles.map((el, id) => (
             <DropdownItem
-              value={el}
               key={id}
+              value={el}
               action={action}
               setValue={setValue}
               setShowDropdown={setShowDropdown}
@@ -102,7 +104,7 @@ export const CustomSelect = ({
       <span
         role={'alert'}
         className="field-error"
-        style={{ marginTop: '25px' }}
+        style={{ marginTop: '55px' }}
       >
         {errors.role && value === '' ? errors.role?.message?.toString() : ''}
       </span>
