@@ -25,11 +25,9 @@ export const Modal = ({
     setIsPending(true)
     postData('/register', userData)
       .then((data) => {
-        console.log(data)
         setIsPending(false)
       })
       .catch((err) => {
-        console.log(err)
         setIsPending(false)
         setError(true)
       })
@@ -41,7 +39,7 @@ export const Modal = ({
         {isPending ? (
           <div>...</div>
         ) : error ? (
-          <ErrorScreen action={setIsFormFilled} />
+          <ErrorScreen action={setError} />
         ) : (
           <>
             <button onClick={handleClose} className="modal__close-btn">
