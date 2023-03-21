@@ -13,7 +13,9 @@
 <span>Form uses Yup for validation of inputs.</span></br>
 <span>React-hook-form is used for data and errors handling.</span></br>
 <span>Data is stored in Redux store and then can be posted to API.</span></br>
-<span>/app folder stores main App.tsx file and its styles file</span>
+
+<h3>Folders organization:</h3>
+<span>/app folder stores main App.tsx file and its styles file</span></br>
 <span>/api folder stores API request methods.</span></br>
 <span>/components folder stores all components, each component has its own folder /components/{ComponentName} with tsx file and styles file in it.</span></br>
 <span>/redux folder stores methods for app's redux store</span></br>
@@ -29,7 +31,7 @@
             <li>handles data and errors</li>
             <li>submits data to store</li>
         </ul>
-    </li>
+    </li></br>
     <li>
         CustomInput component
         <ul>
@@ -44,7 +46,7 @@
             </li>
             <li>password input can show/hide password when user clicks button</li>
         </ul>
-    </li>
+    </li></br>
     <li>
         CustomSelect component
         <ul>
@@ -59,7 +61,7 @@
             </li>
             <li>custom styling</li>
         </ul>
-    </li>
+    </li></br>
     <li>
         Modal component
         <ul>
