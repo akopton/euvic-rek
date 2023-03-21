@@ -23,6 +23,59 @@
   transition: 0.3s ease;
 }
 
+.form-field {
+  display: flex;
+  flex-direction: column;
+  height: 80px;
+  gap: 2px;
+}
+.form-field .field-correct {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: green;
+}
+.form-field .field-error {
+  height: 100%;
+  font-size: 12px;
+  color: red;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  border: 1px solid black;
+  background: none;
+  outline: none;
+  padding: 0;
+  border-radius: 5px;
+}
+input:focus {
+  border: 2px solid blue !important;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  border: 1px solid black;
+  -webkit-text-fill-color: none;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  -webkit-transition: background-color 5000s ease-in-out 12s;
+  transition: background-color 5000s ease-in-out 12s;
+}
+
 .register-form {
   display: flex;
   flex-direction: column;
@@ -409,59 +462,6 @@
   left: 15px;
   transition: all 0.3s ease;
   opacity: 1;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  height: 80px;
-  gap: 2px;
-}
-.form-field .field-correct {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  color: green;
-}
-.form-field .field-error {
-  height: 100%;
-  font-size: 12px;
-  color: red;
-}
-
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-input {
-  border: 1px solid black;
-  background: none;
-  outline: none;
-  padding: 0;
-  border-radius: 5px;
-}
-input:focus {
-  border: 2px solid blue !important;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  border: 1px solid black;
-  -webkit-text-fill-color: none;
-  -webkit-box-shadow: 0 0 0px 1000px white inset;
-  -webkit-transition: background-color 5000s ease-in-out 12s;
-  transition: background-color 5000s ease-in-out 12s;
 }
 
 * {
